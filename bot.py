@@ -1,12 +1,13 @@
+import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-TOKEN = "7863126978:AAEhaPHGKCfWu1zFsOw5aEH7_LyEb1O3PFI"
+TOKEN = os.environ.get("7863126978:AAEhaPHGKCfWu1zFsOw5aEH7_LyEb1O3PFI
+")
 
 CHANNEL_LINK = "https://t.me/moviewish_710"
 WEBSITE_LINK = "https://movieswish.netlify.app/"
 
-# /start command
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     keyboard = [
         [
@@ -19,7 +20,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-# button handler
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
@@ -49,3 +49,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
